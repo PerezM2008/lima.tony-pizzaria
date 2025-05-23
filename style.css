@@ -16,6 +16,9 @@ a{
 ul, ol, li{
     list-style: none;
 }
+html{
+    scroll-behavior: smooth;
+}
 
 body{
    
@@ -31,6 +34,8 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: var(--default-padding);
+    background-color: #fff7 ;
+    z-index: 999;
     
 }
 
@@ -58,6 +63,11 @@ header button{
     display: flex;
     
 }
+section{
+    height: 100vh;
+    padding: var(--default-padding);
+}
+
 header menu{
     display: flex;
     align-items: center;
@@ -76,11 +86,13 @@ section{
 
 .Home {
     background-image: url(./img/bg-home.svg);
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: top right;
     display: grid;
     grid-template-rows: 3fr 1fr;
 }
+
 .container-top {
     display: flex;
     justify-content: center ;
@@ -133,6 +145,12 @@ section{
     opacity: 1;
 }
 .overflow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
     
 }
 .container-info{
@@ -146,17 +164,17 @@ section{
     width: 100%;
     background-color: #0008;
     border-radius: 0 0 8px 8px;
+    transition: .6s;
 
 }
 .pizza:hover .container-info{
     bottom: 0;
-    transition: .3s;
-
 }
 .container-info p{
     color: white;
     font-size: 12px;
     font-weight: 400;
+    width: 100px;
 }
 .container-info span {
     display: grid;
@@ -169,13 +187,268 @@ section{
     border-radius: 4px;
 }
 .Cardapio {
-    background-color: gold;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+.cardapio-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-bottom: 1px solid var(--primary-color);
+    height: 260px;
 }
 
+.cardapio-item:last-child {
+    border: none;
+}
+
+.section-tittle {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.section-tittle h3 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    font-weight: 400;
+}
+
+.item-texto {
+    display: flex;
+    justify-content: space-between;
+}
+.item-texto h4,
+.item-texto a {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.bebida {
+    box-shadow: none;
+    transition: 0.5s;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.bebida p {
+    width: 100%;
+}
+
+.bebida .preco {
+    color: var(--primary-color);
+}
+
+.bebida .descricao {
+    font-size: 0.6rem;
+}
+
+.bebida:hover {
+    box-shadow: 0 4px 8px #0005;
+}
+
+
+
+
+
 .Serviços {
-    background-color: blue;
+    background-color: var(--segundary-color);
+    height: auto;
+    padding-block: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.servicos-container {
+    display: flex;
+    justify-content: space-between;
+}
+.servicos-item {
+    width: 400px;
+    height: 500px;
+    border: 4px solid var(--primary-color);
+    border-radius: 24px;
+    padding: 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.servicos-item img {
+    filter: drop-shadow(4px 4px 4px #0005);
+}
+
+.servicos-item h4 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-shadow: 4px 4px 4px #0005;
+}
+
+.servicos-item p {
+    text-align: center;
+    text-shadow: 4px 4px 4px #0005;
 }
 footer{
-    height: 1526px;
+    height: 526px;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     
+}
+
+footer nav {
+    display: flex;
+    width: 75%;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 120px;
+    gap: 16px;
+}
+
+.nav-item.logo {
+    justify-content: center;
+    padding-top: 0;
+}
+
+.nav-item h4 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.nav-item menu {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.nav-item li {
+    display: flex;
+    gap: 12px;
+    width: 200px;
+}
+
+.social a {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    display: grid;
+    place-content: center;
+    font-size: 1.5rem;
+    transition: 0.6s;
+}
+
+.social a :hover {
+    background-color: #fff;
+    color: var(--primary-color);
+}
+
+.copy-right {
+    height: 72px;
+    width: 100%;
+    display: grid;
+    place-content: center;
+    font-size: 0.8rem;
+    font-weight: 300;
+    font-style: italic;
+    border-top: 2px solid var(--segundary-color);
+}
+
+
+@media (max-width:1024px){
+    :root {
+        --default-padding: 0 48px;
+    }
+    header{
+        left: 0;
+        top: 64px;
+        position: absolute;
+        background-color: transparent;
+    }
+    header menu{
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        background-color: var(--primary-color);
+        width: 100vh;
+        height: 64px;
+        color: #fff;
+        justify-content: space-evenly;
+    }
+    header li:hover{
+        color: var(--primary-color);
+    }
+    .Home
+    {
+        grid-template-rows: none;
+    }
+    .Home .container-pizzas{
+        display: none;
+    }
+    .container-top {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 128px;
+    }
+    .pizza:nth-child(3),
+    .pizza:nth-child(4),
+    .pizza:nth-child(5) {
+        display: none;
+    }
+    pizza img{
+        width: auto;
+    }
+
+    .cardapio-item{
+        border: none;
+    }
+    .servicos-container {
+        flex-direction: column;
+        gap: 48px;
+    }
+    .servicos-item{
+        height: 260px;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .servicos-item p{
+        width: 330px;
+    }
+    footer nav {
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 400px;
+        
+    }
+    .nav-item{
+        padding: 0;
+        height: auto;
+    }
+    .social menu{
+        align-items: end;
+    }
+    .nav-item:nth-child(2){
+        display: none;
+    }
+    .copy-right{
+        margin-bottom: 64px;
+    }
 }
